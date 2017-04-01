@@ -1,0 +1,33 @@
+#user-center-view{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+#user-center-view::-webkit-scrollbar{
+  width: 0;
+}
+
+.risk-view-container{
+  width: 100%;
+  min-height: 100%;
+  background: #eeeef3;
+  padding-bottom: 1rem;
+  border-top: 0.05rem solid #e6e6e6;
+
+  .tab-item-arrow{
+    margin-top: 0.5rem;
+  }
+
+  .tab-item-arrow:first-child{
+    margin-top: 0rem;
+  }
+
+
+
+
+  
+}

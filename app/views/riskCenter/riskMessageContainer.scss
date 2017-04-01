@@ -1,0 +1,33 @@
+  .risk-tab-div{
+    width: 100%;
+    overflow: hidden;
+    transition : all 0.5s ease-in-out;
+    display: block;
+
+    .div-title{
+      color: #35353f;
+      font-size: 0.6rem;
+      padding: 0.6rem 0.75rem;
+      line-height: 0.8rem;
+    }
+
+
+    .btn-div{
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+
+        button{
+            width: 10rem;
+            height: 2rem;
+            border-radius: 2rem;
+            background: #3c95fa;
+            font-size: 0.8rem;
+            color: #ffffff;
+        }
+
+        button:disabled{
+            background-color: #d2d2d2;
+        }
+    }
+  }

@@ -1,0 +1,1 @@
+export ModalMessageCodeSkin from './modalMessageCodeSkin'

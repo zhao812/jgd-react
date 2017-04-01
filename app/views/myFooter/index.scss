@@ -1,0 +1,111 @@
+#my-footer-view{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.my-footer-container{
+  position: relative;
+  height: 100%;
+  background: #f2f2f2;
+  border-top: 0.05rem solid #e6e6e6;
+  
+
+  .my-footer-title{
+    width: 100%;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    padding: 0 0.75rem;
+    display: block;
+    font-size: 0.75rem;
+    color: #35353f;
+    background: #ffffff;
+    margin-top: 0.5rem;
+  }
+
+  .my-footer-list{
+    padding: 0 0.75rem;
+    height: calc(100% - 5rem);
+    overflow-y: auto;
+    border-top: 0.05rem solid #ededed;
+    background: #ffffff;
+    padding-top: 0.75rem;
+  }
+
+  .my-footer-date-list{
+
+    .date-list-title-div{
+      font-size: 0.75rem;
+      color: #35353f;
+
+      .title-icon{
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: #7ab1fb;
+        margin-right: 0.5rem;
+        display: inline-block;
+      }
+    }
+
+    .my-footer-item-list{
+      margin-left: 0.2rem;
+      border-left: 0.05rem solid #d2d2d2;
+      padding: 0.6rem 0 0.5rem 0.8rem;
+
+      .my-footer-item{
+        height: 1.75rem;
+        line-height: 1.75rem;
+        border-radius: 0.5rem;
+        // border: 0.05rem solid #d2d2d2;
+        box-sizing: border-box;
+        margin-bottom: 0.5rem;
+        background-color: #f7faff;
+
+
+        div{
+          font-size: 0.7rem;
+        }
+
+        .item-date-txt{
+          float: left;
+          margin-left: 0.5rem;
+          color: #000000;
+        }
+
+        .item-title{
+          float: right;
+          margin-right: 0.5rem;
+          background: url(../../images/myfooter/right-icon.png) no-repeat right center;
+          background-size: 0.3rem 0.6rem;
+          padding-right: 0.6rem;
+          color: #90909b;
+        }
+      }
+
+      .my-footer-item:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .my-footer-date-list:first-child{
+    margin-top: 0;
+  }
+
+  .my-footer-date-list:last-child {
+    .my-footer-item-list{
+      border-left: 0;
+    }
+  }
+
+  .btn-help-blue {
+      width: 1.5rem;
+      height: 100%;
+      background: url(../../images/myfooter/white-help-icon.png) no-repeat center;
+      background-size: 1.4rem;
+      float: right;
+  }
+}

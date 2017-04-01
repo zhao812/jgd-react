@@ -1,0 +1,33 @@
+.tab-item-arrow{
+    width: 100%;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    background: #ffffff;
+    padding-left: 0.75rem;
+
+    .title{
+      font-size: 0.75rem;
+      color: #35353f;
+      float: left;  
+    }
+
+    .tab-arrow-icon{
+      float: right;
+      width: 2.1rem;
+      height: 100%;
+      background: url(../../../images/common/down-arrow.png) center no-repeat;
+      background-size: .6rem .35rem;
+      transition : all 0.5s ease-in-out;
+    }
+
+    .tab-arrow-icon.right{
+        transform: rotate(-90deg);
+    }
+
+    .tab-arrow-icon.up{
+        transform: scaleY(-1);
+    }
+
+    .tab-arrow-icon.down{
+    }
+  }

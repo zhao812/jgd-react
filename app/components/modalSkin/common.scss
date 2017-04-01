@@ -1,0 +1,67 @@
+.jgd-msg-box-container{
+  position: fixed;
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.alert-common-container{
+  position: absolute;
+  width: 15rem;
+  top: 18%;
+  left: calc(50% - 7.5rem);
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+}
+
+.alert-header{
+  width: 100%;
+  position: relative;
+  border-bottom: 0.05rem solid #ededed;
+
+  .alert-title{
+    width: 100%;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    color: #35353f;
+    font-size: 0.85rem;
+  }
+
+  .alert-button-close{
+    width: 1.4rem;
+    height: 1.4rem;
+    background: url(../../images/common/btn-white-close.png) no-repeat center;
+    background-size: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0.3rem;
+    right: 0.5rem;
+  }
+
+  .alert-content {
+    background-color: #ffffff;
+    padding-bottom: 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
+
+.alert-button-div{
+  width: 100%;
+  padding: 0 1rem;
+
+  button{
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: rgba(0,0,0,0);
+    font-size: 0.8rem;
+    color: #00b7ee;
+    border: 0.05rem solid #00b7ee;
+  }
+}
