@@ -15,7 +15,7 @@ class HomeHelpView extends React.Component{
         let { onCloseHelpHandler } = this.props
 
         return(
-            <div className="home-help-container">
+            <div className="home-help-container popup-container">
                 <div className="home-help-div">
                     <div className="home-help-content">
                         <p className="title">等级划分为：</p>

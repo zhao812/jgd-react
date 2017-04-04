@@ -27,10 +27,11 @@ class HomeMenuListView extends React.Component{
     }
 
     render(){
-        let { data } = this.props
+        let { data } = this.props, isOpen = data.isOpen
         let items = HomeConst.MenuList.map((obj, index)=>{
             let str = obj.id == HomeConst.HOME_FOOT ? data.lbs : ""
-            return (<HomeMenuItem key={index} descRealStr={str} menuData={obj} clickHandler={(type)=>this.onClickHandler(type)} />)
+            let iconStatus = HomeConst.HOME_MEMBER_LIST.find(value => value == obj.link) && isOpen == 1 ? false : true
+            return (<HomeMenuItem key={index} descRealStr={str} iconStatus={iconStatus} menuData={obj} clickHandler={()=>this.onClickHandler(obj.link)} />)
         })
 
         return(

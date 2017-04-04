@@ -29,6 +29,7 @@ export const HIDE_MODAL = "HIDE_MODAL"
 
 
 /**成为会员opentip */
+export const RESET_OPEN_TIP = "RESET_OPEN_TIP"
 export const INIT_OPENTIP = "INIT_OPENTIP"
 export const OPENTIP_SHOW_USER_CLAUSE = "OPENTIP_SHOW_USER_CLAUSE"
 export const OPENTIP_HIDE_USER_CLAUSE = "OPENTIP_HIDE_USER_CLAUSE"

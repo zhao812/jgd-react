@@ -11,6 +11,7 @@ const receiveData = data => ({
 
 /**获取套餐数据 */
 export const getPackages = () => dispatch => {
+    dispatch({type: ActionTypes.RESET_OPEN_TIP})    
     let url = "pkgs"
     dispatch(helpAction.fetchPosts(url, url, {})).then((data)=>dispatch(receiveData(data)))
 }

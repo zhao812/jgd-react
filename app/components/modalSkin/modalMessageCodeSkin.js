@@ -62,7 +62,7 @@ class ModalMessageCodeSkin extends React.Component {
         let {anBefore, anAfter} = this.state;
         return (
             <VelocityComponent  {...(show===true?anAfter:anBefore)}>
-                <div className="alert-message-code-skin">
+                <div className="alert-message-code-skin popup-container">
                     <div className="alert-common-container">
                         <div className="alert-header">
                             <div className="alert-title">获取短信验证码</div>

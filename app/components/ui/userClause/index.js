@@ -13,7 +13,7 @@ class UserClause extends React.Component {
         let {onCloseHandler} = this.props
 
         return(
-            <div className="user-clause-view">
+            <div className="user-clause-view popup-container">
                 <div className="clauseMask">
                     <div className="clause-container">
                         <div className="clause-content-div">

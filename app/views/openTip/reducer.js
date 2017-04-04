@@ -11,6 +11,15 @@ const initialState = {
     agreeStatus: false,
 }
 
+let resetState = (state) => {
+    return {
+        ...state,
+        userClauseIsShow: false,
+        bnDisabled: true,
+        agreeStatus: false,
+    }
+}
+
 let initPackage = (state, list) => {
     if(!list || list.length==0) return state
     return {
@@ -47,6 +56,8 @@ let onHideUserClause = state => {
 
 export default function update (state = initialState, action){
     switch(action.type){
+        case ActionTypes.RESET_OPEN_TIP:
+            return resetState(state)
         case ActionTypes.INIT_OPENTIP:
             return initPackage(state, action.data)
         case ActionTypes.OPENTIP_SHOW_USER_CLAUSE:
