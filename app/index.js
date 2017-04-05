@@ -13,7 +13,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import { history, store} from './redux'
 import Routers from './router/Routers'
 
-
 //app点击事件初始化
 injectTapEventPlugin();
 

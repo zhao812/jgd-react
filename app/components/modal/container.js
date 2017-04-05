@@ -5,8 +5,8 @@ import WinMark from "./winMark.js";
 
 //modal skin
 import Alert from "./alert.js";
-import { ModalMessageCodeSkin } from '../modalSkin'
-import * as ModalConst from '../modalConst'
+import { ModalMessageCodeSkin, ModalChargePackageSkin } from '../modalSkin'
+import * as ModalConst from './modalConst'
 
 class HelpModal extends React.Component {
 
@@ -63,6 +63,8 @@ class HelpModal extends React.Component {
         switch(skinName){
             case ModalConst.MODAL_MESSAGE_CODE_SKIN:
                 return <ModalMessageCodeSkin {...modal} />
+            case ModalConst.MODAL_CHARGE_PACKAGE_SKIN:
+                return <ModalChargePackageSkin {...modal} />
             default:
                 return <Alert {...modal} />
         }

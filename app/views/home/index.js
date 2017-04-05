@@ -6,9 +6,11 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { getHomeData } from './homeAction'
+import { getHomeData } from './reducer/actions'
 
-import { Page, Header} from '../../components'
+import Page from '../../components/page'
+import Header from '../../components/header'
+
 import HomeTopView from './homeTopView'
 import HomeMenuListView from './homeMenuListView'
 import HomeHelpView from './homeHelpView'

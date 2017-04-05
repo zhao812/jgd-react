@@ -7,9 +7,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import RiskMessageItem from './riskMessageItem'
-import * as RiskCenterConst from './riskCenterConst'
+import * as RiskCenterConst from './reducer/const'
 
-import { onBnConfirmHandler } from './riskCenterAction'
+import { onBnConfirmHandler } from './reducer/actions'
 
 import './riskMessageContainer.scss'
 

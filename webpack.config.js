@@ -3,6 +3,7 @@ var path = require('path');
 var webpack = require('webpack');
 var WebpackMd5Hash = require('webpack-md5-hash');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CleanPlugin = require('clean-webpack-plugin');
 
 // 项目根路径
 var ROOT_PATH = path.resolve(__dirname, './');
@@ -27,7 +28,6 @@ loaders.push({
     test: /\.js$/,
     exclude: /node_modules/,
     loader: ['babel-loader'],
-    // loaders: ['babel?cacheDirectory=' + CACHE_PATH],
     include: [path.join(__dirname, './')]
 });
 
@@ -39,8 +39,10 @@ loaders.push({
 
 //图片
 loaders.push({
+  // test: /\.(png|jpg)$/,
+  // loader: "file-loader?name=images/[hash:8].[name].[ext]"
   test: /\.(png|jpg)$/,
-  loader: "file-loader?name=images/[hash:8].[name].[ext]"
+　loader: 'url-loader?limit=1000&name=images/[hash:8].[name].[ext]'
 });
 
 var plugins = [];
@@ -67,14 +69,14 @@ plugins.push(
 plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }));
 
 var config = {
-  // devtool: 'source-map',
+  devtool: 'source-map',
   context: SRC_PATH,
   entry: entry,
   output: {
     path: DIST_PATH,
     filename: 'bundle.js',
     // 添加 chunkFilename
-    chunkFilename: '[name].chunk.js',
+    chunkFilename: '[name].[chunkhash].chunk.js',
   },
   module: {
       loaders : loaders
@@ -88,18 +90,26 @@ var config = {
 };
 
 if(process.env.NODE_ENV == 'production'){
-  delete config.devtool;
   delete config.devServer
-    config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    }))
+  delete config.devtool
+  config.plugins.push(
+    //清空输出目录
+    new CleanPlugin([], {
+      "root": DIST_PATH,
+      verbose: true,
+      dry: false
+    })
+  )
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compressor: {
+      warnings: false
+    }
+  }))
 }else{
+  
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
   config.plugins.push(new webpack.NamedModulesPlugin());
   // 根据文件内容生成 hash
   config.plugins.push(new WebpackMd5Hash());
 }
-
 module.exports = config;

@@ -2,8 +2,8 @@
 import * as React from 'react';
 
 import styles from  "./alert.scss";
-import { VelocityComponent,VelocityTransitionGroup }  from "velocity-react"
-import {ModalConst} from '../../components'
+import Velocity from '../velocity'
+import * as ModalConst from './modalConst'
 
 class Alert extends React.Component {
     constructor(props) {
@@ -11,31 +11,12 @@ class Alert extends React.Component {
         this.handOk = this.handOk.bind(this);
         this.handCancel = this.handCancel.bind(this);
         this.callBack = this.callBack.bind(this);
-
-        this.state = {
-            anBefore:{
-                duration:60,
-                animation:{
-                    scaleX:0.8,
-                    scaleY:0.8
-                },
-                visibility:"hidden",
-            },
-            anAfter:{
-                duration:300,
-                animation:{
-                    scaleX:1,
-                    scaleY:1
-                },
-                visibility:"visible"
-                //easing:[1.1,1.5]
-                //easing: "easeInExpo"
-            }
-        }
     }
+
     handOk(){
         this.callBack(ModalConst.YES);
     }
+
     handCancel(){
         this.callBack(ModalConst.NO)
     }
@@ -49,9 +30,8 @@ class Alert extends React.Component {
     render() {
         let {message,show,title,children,isConfirm,closable} = this.props;
        
-       let {anBefore,anAfter} = this.state;
         return (
-            <VelocityComponent  {...(show===true?anAfter:anBefore)}>
+            <Velocity  show={show}>
                 <div className={"virtual-modal-wrap "}>
                     <div className={"virtual-modal "} >
                         <button onClick={this.handCancel} className={"virtual-modal-close"+(closable?"":" hide")}>X</button>
@@ -66,7 +46,7 @@ class Alert extends React.Component {
                         </div>
                     </div> 
                 </div>
-            </VelocityComponent>
+            </Velocity>
         )
     }
     

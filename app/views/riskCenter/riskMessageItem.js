@@ -6,7 +6,7 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { ButtonSwitchIOS } from '../../components'
+import ButtonSwitchIOS from '../../components/button/buttonSwitchIOS'
 
 import RiskMessageSelectList from './riskMessageSelectList'
 import RiskMessageSelectItem from './riskMessageSelectItem'

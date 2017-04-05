@@ -9,7 +9,6 @@ import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-rou
 import thunk from 'redux-thunk';
 
 import * as reducers  from "./reducers";
-import navigate from '../router/navigate'  
 
 const reducer = combineReducers({
 	...reducers,
@@ -23,7 +22,7 @@ const routingMiddleware = routerMiddleware(browserHistory);
 // 利用compose增强store，这个 store 与 applyMiddleware 和 redux-devtools 一起使用
 let store, middleware, enhancer;
 if(process.env.NODE_ENV != "production"){
-    let DevTools = require('./devTools/index') ;// 利用redux-logger打印日志
+    let DevTools = require('./devTools') ;// 利用redux-logger打印日志
 	let {createLogger} = require('redux-logger') ;// 调用日志打印方法
     // 调用日志打印方法
     const loggerMiddleware = createLogger()
@@ -47,6 +46,5 @@ if(process.env.NODE_ENV != "production"){
 }
 
 const history = syncHistoryWithStore(browserHistory, store);
-navigate.install(history);
 
 export {store, history}

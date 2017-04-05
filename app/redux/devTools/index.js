@@ -12,9 +12,9 @@ import LogMonitor from 'redux-devtools-log-monitor'
 import DockMonitor from 'redux-devtools-dock-monitor'
 
 module.exports = createDevTools(
-    <DockMonitor toggleVisibilityKey='ctrl-h'
+    <DockMonitor toggleVisibilityKey='ctrl-g'
                  changePositionKey='ctrl-q'
                  defaultIsVisible={false}>
-        <LogMonitor theme="tomorrow" />
+        <LogMonitor/>
     </DockMonitor>
 );

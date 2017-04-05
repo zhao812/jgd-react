@@ -6,7 +6,10 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { Page, Header, TabItemArrow } from '../../components'
+import Page from '../../components/page'
+import Header from '../../components/page'
+import TabItemArrow from '../../components/ui/tabItemArrow'
+
 import './index.scss'
 
 class MyFooter extends React.Component {

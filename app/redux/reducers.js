@@ -3,13 +3,13 @@
  */
 
 //用户reducer
-export userReducer from './user/userReducer'
+export userReducer from '../views/main/reducer/reducer'
 
 //首页reducer
-export homeReducer from '../views/home/homeReducer'
+export homeReducer from '../views/home/reducer/reducer'
 
 //风险中心reducer
-export riskCenterReducer from '../views/riskCenter/riskCenterReducer'
+export riskCenterReducer from '../views/riskCenter/reducer/reducer'
 
 //成为会员
-export openTipReducer from '../views/openTip/reducer'
+export openTipReducer from '../views/openTip/reducer/reducer'

@@ -6,16 +6,29 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { Page, Header, UserClause} from '../../components'
+import Page from '../../components/page'
+import Header from '../../components/header'
+import UserClause from '../../components/ui/userClause'
+
 import './index.scss'
 
-import { getPackages, onShowUserClause, onHideUserClause } from './actions'
+import { getPackages, onShowUserClause, onHideUserClause } from './reducer/actions'
 import classNames from 'classnames'
+
+import * as ModalConst from '../../components/modal/modalConst'
+import Modal from '../../components/modal'
 
 class OpenTip extends React.Component {
     
     componentDidMount(){
         this.props.getPackages();
+    }
+
+    onOpenHandler(){
+        let {packages} = this.props;
+        Modal.alert({packages: packages}, ModalConst.MODAL_CHARGE_PACKAGE_SKIN).then(function(data){
+            console.log(111, data)
+        })
     }
     
     render() {
@@ -47,7 +60,7 @@ class OpenTip extends React.Component {
                     </div>
                 </div>
                 <div className="clause-div" onTouchTap={onShowUserClause}><div className={checkBoxClass}></div><div>我已阅读以上条款并遵守相关规定</div></div>
-                <button className="btn-open" disabled={bnDisabled}>开通会员</button>
+                <button className="btn-open" disabled={bnDisabled} onTouchTap={this.onOpenHandler}>开通会员</button>
                 { userClauseIsShow ? <UserClause onCloseHandler={onHideUserClause} /> : "" }
             </Page>
         )

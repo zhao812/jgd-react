@@ -1,0 +1,129 @@
+.alert-charge-package-skin{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+  .alert-common-container{
+    position: fixed;
+    width: 90%;
+    left: 5%;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    color: #35353f;
+
+    .alert-title{
+      width: 100%;
+      height: 2.25rem;
+      line-height: 2.25rem;
+      font-size: 0.85rem;
+      border-bottom: 0.05rem solid #efefef;
+    }
+
+    .alert-content{
+      padding: 0.5rem;
+
+      .item{
+        margin-bottom: 0.5rem;
+
+        .title{
+          width: 30%;
+          font-size: 0.7rem;
+          text-align: right;
+          float: left;
+          height: 1rem;
+        }
+
+        .charge-package-title{
+          padding-top: 0.25rem;
+        }
+
+        .inputPasswordTitle{
+          height: 1.5rem;
+          line-height: 1.5rem;
+        }
+
+        .right{
+          width: 70%;
+          float: left;
+          text-align: left;
+          padding-left: 0.5rem;
+
+
+          .inputPassword{
+            width: 100%;
+            height: 1.5rem;
+            vertical-align: middle;
+            outline: none;
+            border-radius: 0.3rem;
+            border: 0;
+            background-color: #f1f1f6;
+          }
+        }
+      }
+    }
+
+    .charge-package-item{
+      margin-bottom: 0.5rem;
+
+      >div{
+        display: inline-block;
+        font-size: 0.75rem;
+        color: #2f2f2f;
+        vertical-align: middle;
+      }
+
+      .icon{
+        margin-right: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        background: url(../../../static/images/common/option-icon.png) no-repeat center;
+        background-size: 100%;
+      }
+    }
+
+    .charge-package-item.selected{
+      .icon{
+        background: url(../../../static/images/common/option-selected-icon.png) no-repeat center;
+        background-size: 100%;
+      }
+    }
+
+    .charge-package-item:last-child{
+      margin-bottom: 0;
+    }
+
+    .tip{
+      text-align: left;
+      margin-bottom: 0.75rem;
+      line-height: 0.9rem;
+    }
+
+    .alert-button-div{
+      padding: 0;
+
+      .alert-button-no{
+        float: left;
+        color: #3692fd;
+        background-color: #ffffff;
+      }
+
+      .alert-button-yes{
+        float: right;
+        color: #ffffff;
+        background-color: #3692fd;
+      }
+
+      button{
+        width: 48%;
+        height: 1.75rem;
+        line-height: 1.75rem;
+        border-radius: 1.75rem;
+      }
+    }
+  }
+}

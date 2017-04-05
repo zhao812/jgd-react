@@ -1,0 +1,202 @@
+.home-top-div{
+  width: 100%;
+  height: 15rem;
+  background: radial-gradient(rgb(55, 151, 255), rgb(109, 50, 235));
+  position: relative;
+
+  .home-security-circle-div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .home-security-circle{
+      background: url(../../static/images/home/circle-img.png) no-repeat center;
+      background-size: 100%;
+      width: 7.375rem;
+      height: 7.375rem;
+      position: absolute;
+      left: calc(50% - 3.66rem);
+      top: 3.1rem;
+      transform: rotate(-226deg);
+      -webkit-transform: rotate(-226deg);
+      transition: all 1s;
+      -webkit-transition: all 1s;
+    }
+
+    .circle-s1{
+      transform: rotate(-226deg);
+      -webkit-transform: rotate(-226deg);
+    }
+
+    .circle-s2{
+      transform: rotate(-181deg);
+      -webkit-transform: rotate(-181deg);
+    }
+
+    .circle-s3{
+      transform: rotate(-142deg);
+      -webkit-transform: rotate(-142deg);
+    }
+
+    .circle-s4{
+      transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+    }
+
+    .circle-s5{
+      transform: rotate(-41deg);
+      -webkit-transform: rotate(-41deg);
+    }
+
+    .circle-s6{
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+    }
+
+    .circle-s7{
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+
+    .home-security-circle-bg{
+      background: url(../../static/images/home/s6_bg.png) no-repeat center 2.25rem;
+      background-size: 100%;
+      width: 9.1rem;
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .home-top-content{
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      position: relative;
+      
+
+      span{
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.65rem;
+        position: absolute;
+        width: 2rem;
+        height: 1rem;
+        line-height: 1rem;
+      }
+
+      span.selected{
+        color: rgba(255, 255, 255, 1);
+      }
+
+      .s1{
+        left: calc(50% - 4.4rem);
+        top: 67%;
+      }
+
+      .s2{
+        left: calc(50% - 6.1rem);
+        top: 42%;
+      }
+
+      .s3{
+        left: calc(50% - 5rem);
+        top: 21%;
+      }
+
+      .s4{
+        left: calc(50% - 1rem);
+        top: 9%;
+      }
+
+      .s5{
+        left: calc(50% + 3rem);
+        top: 21%;
+      }
+
+      .s6{
+        left: calc(50% + 4rem);
+        top: 42%;
+      }
+
+      .s7{
+        left: calc(50% + 2.5rem);
+        top: 67%;
+      }
+
+      .home-security-title{
+        text-align: center;
+        font-size: 0.6rem;
+        color: #ffffff;
+        display: inline-block;
+        margin-top: 5rem;
+      }
+
+      .home-security-txt{
+        text-align: center;
+        font-size: 2.8rem;
+        color: #ffffff;
+      }
+
+      .btn-upgrade{
+        display: inline-block;
+        width: 4rem;
+        height: 1.25rem;
+        line-height: 1.25rem;
+        border-radius: 1.25rem;
+        background: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        color: #005eff;
+        font-size: 0.7rem;
+        margin-top: 2rem;
+      }
+
+      .btn-upgrade.max-level{
+        color: #ffffff !important;
+        background-color: rgba(0,0,0,0);
+        border: 0.05rem solid #ffffff;
+      }
+
+      .upgrade-tip{
+        font-size: 0.65rem;
+        color: #ffffff;
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 0.5rem;
+        line-height: 0.8rem;
+      }
+  }
+
+  .btnOpen{
+    width: 4.25rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    background: url(../../static/images/home/btnOpenIcon.png) no-repeat 0.35rem center;
+    background-size: 0.8rem;
+    background-color: #00bcff;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    font-size: 0.65rem;
+    color: #ffffff;
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 0px;
+    padding-left: 1.4rem;
+  }
+
+  .btnClose{
+    position: absolute;
+    background: url(../../static/images/home/btnCloseIcon.png) no-repeat center top;
+    background-size: 1rem;
+    top: 0.6rem;
+    right: 0.75rem;
+    padding-top: 1.2rem;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 1);
+    width: 1.2rem;
+    text-align: center;
+    opacity: 0.4;
+  }
+}

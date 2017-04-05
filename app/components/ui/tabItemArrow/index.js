@@ -4,7 +4,7 @@
 
 import React, { PropTypes } from 'react'
 
-import { CommonConst } from '../../../constants'
+import * as CommonConst from '../../../views/main/CommonConst'
 import classNames from 'classnames'
 import './index.scss'
 

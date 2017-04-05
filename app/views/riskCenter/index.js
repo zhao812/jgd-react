@@ -7,11 +7,14 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import RiskMessageContainer from './riskMessageContainer'
-import { Page, Header, TabItemArrow } from '../../components'
-import './index.scss'
-import { CommonConst } from '../../constants'
+import Page from '../../components/page'
+import Header from '../../components/header'
+import TabItemArrow from '../../components/ui/tabItemArrow'
 
-import { getRiskCenterData, onTabClickHandler } from './riskCenterAction'
+import './index.scss'
+import * as CommonConst from '../main/reducer/CommonConst'
+
+import { getRiskCenterData, onTabClickHandler } from './reducer/actions'
 
 class RiskCenter extends React.Component {
 

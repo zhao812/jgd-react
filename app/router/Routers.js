@@ -2,7 +2,6 @@
  * Created by zhao 
  * 2017/3/14.
  */
-
 import React, { PropTypes } from 'react'
 import { Router, Route, IndexRoute } from 'react-router'
 
@@ -10,7 +9,7 @@ const Routers = {
 	path: '/',
 	getComponent(nextState, cb){
 		require.ensure([], require => {
-			cb(null, require('../main').default)
+			cb(null, require('../views/main').default)
 		}, "App")
 	},
 	indexRoute: {
@@ -21,9 +20,30 @@ const Routers = {
 		}
 	},
 	childRoutes: [
-		require('./myFooter').default,
-		require('./riskCenter').default,
-		require('./openTip').default
+		{
+			path: 'myFooter',
+			getComponent(nextState, cb){
+				require.ensure([], (require) => {
+					cb(null, require('../views/myFooter').default, 'myFooter')
+				})
+			}
+		},
+		{
+			path: 'openTip',
+			getComponent(nextState, cb){
+				require.ensure([], (require) => {
+					cb(null, require('../views/openTip').default, 'openTip')
+				})
+			}
+		},
+		{
+			path: 'riskCenter',
+			getComponent(nextState, cb){
+				require.ensure([], (require) => {
+					cb(null, require('../views/riskCenter').default, 'riskCenter')
+				})
+			}
+		},
 	]
 }
 
