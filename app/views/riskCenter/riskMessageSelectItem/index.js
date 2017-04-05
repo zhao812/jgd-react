@@ -4,7 +4,7 @@
 
 import React, { PropTypes } from 'react'
 
-import './riskMessageSelectItem.scss'
+import './index.scss'
 
 class RiskMessageSelectItem extends React.Component {
 

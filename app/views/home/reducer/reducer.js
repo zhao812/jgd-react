@@ -8,7 +8,10 @@ import * as HomeConst from './actions'
 const initialState = {
     animationGrade : 1,
     lbs : "",
-    helpIsShow: false
+    helpIsShow: false,
+    bgRadialGradient: "#ff5959, #ff3a3c",
+    fontColor: "#ff000c",
+    bnColor: "#dd000a"
 }
 
 let initHomeDate = (state, data) => {
@@ -16,6 +19,9 @@ let initHomeDate = (state, data) => {
     return {
         ...state,
         lbs : data.currentLbs || "",
+        bgRadialGradient: data.bgColor,
+        fontColor: data.fontColor,
+        bnColor: data.bnColor,
         animationGrade : 1,
     }
 }

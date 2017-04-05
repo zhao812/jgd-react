@@ -4,7 +4,7 @@
 
 import React, { PropTypes } from 'react'
 
-import './homeMenuItem.scss'
+import './index.scss'
 
 class HomeMenuItem extends React.Component{
 

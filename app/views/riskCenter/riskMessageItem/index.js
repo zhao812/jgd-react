@@ -6,15 +6,15 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import ButtonSwitchIOS from '../../components/button/buttonSwitchIOS'
+import ButtonSwitchIOS from '../../../components/button/buttonSwitchIOS'
 
-import RiskMessageSelectList from './riskMessageSelectList'
-import RiskMessageSelectItem from './riskMessageSelectItem'
-import RiskMessageCityItem from './riskMessageCityItem'
+import RiskMessageSelectList from '../riskMessageSelectList'
+import RiskMessageSelectItem from '../riskMessageSelectItem'
+import RiskMessageCityItem from '../riskMessageCityItem'
 
-import { onSwitchHandler, onSelectChangeHandler } from './riskCenterAction'
+import { onSwitchHandler, onSelectChangeHandler } from '../reducer/actions'
 
-import './riskMessageItem.scss'
+import './index.scss'
 
 class RiskMessageItem extends React.Component {
 

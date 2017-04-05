@@ -3,14 +3,14 @@
  */
 import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
-import { connect, browserHistory } from 'react-redux'
+import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 
 import { addAnimationGrade,  onOpenHelpHandler } from '../reducer/actions'
-import { getSecurityBgColorByLevel } from '../../../redux/common/utilsAction'
+
 
 import classNames from 'classnames'
 import * as HomeConst from '../reducer/const'
-import * as utils from '../../utils/utils'
 
 
 //导入css
@@ -34,7 +34,7 @@ class HomeTopView extends React.Component{
     }
 
     render(){
-        let { animationGrade, securityGrade, isOpen, addAnimationGrade, onOpenHelpHandler} = this.props
+        let { animationGrade, securityGrade, isOpen, bgRadialGradient, fontColor, bnColor, addAnimationGrade, onOpenHelpHandler} = this.props
         let marks, index, list=[];
         for(index=1; index<=7; index++){
             list.push(index);
@@ -51,7 +51,7 @@ class HomeTopView extends React.Component{
         }
 
         return(
-            <div className="home-top-div" style={{background: "radial-gradient("+getSecurityBgColorByLevel(securityGrade)+")"}}>
+            <div className="home-top-div" style={{background: "radial-gradient("+bgRadialGradient+")"}}>
                 <div className="home-security-circle-div">
                     <div className={'home-security-circle ' + 'circle-s'+securityGrade}></div>
                     <div className="home-security-circle-bg"></div>
@@ -61,7 +61,7 @@ class HomeTopView extends React.Component{
                     { marks }
                     <div className="home-security-title">当前安全等级</div>
                     <div className="home-security-txt">S{ animationGrade }</div>
-                    <button className={securityGrade >= HomeConst.MaxLevel ? "max-level btn-upgrade" : "btn-upgrade"} style={{color : utils.getSecurityFontColorByLevel(securityGrade)}} onTouchTap={this.onBnUpgradeHandler}>
+                    <button className={securityGrade >= HomeConst.MaxLevel ? "max-level btn-upgrade" : "btn-upgrade"} style={{color : fontColor}} onTouchTap={this.onBnUpgradeHandler}>
                         {securityGrade >= HomeConst.MaxLevel ? "最高等级" : "提高等级"}
                     </button>
                     <div className="upgrade-tip">尊敬的金戈盾会员，安全等级为S7时，<br />账户发生风险，钱宝优先追偿哦！</div>
@@ -69,7 +69,7 @@ class HomeTopView extends React.Component{
                 { 
                     //未开启
                     isOpen == 1 ? 
-                    <button className="btnOpen" style={{"backgroundColor" : utils.getSecurityBtnColorByLevel(securityGrade)}} onTouchTap={this.onBnOpenHandler}>开通会员</button>
+                    <button className="btnOpen" style={{"backgroundColor" : bnColor}} onTouchTap={this.onBnOpenHandler}>开通会员</button>
                     :
                     <button className="btnClose" onTouchTap={this.onBnCloseHandler}>关闭</button>
                 }
@@ -82,6 +82,9 @@ HomeTopView.PropTypes = {
     securityGrade: PropTypes.number.isRequired,
     animationGrade: PropTypes.number.isRequired,
     isOpen: PropTypes.number.isRequired,
+    bgRadialGradient: PropTypes.string.isRequired,
+    fontColor: PropTypes.string.isRequired,
+    bnColor: PropTypes.string.isRequired,
     
     addAnimationGrade: PropTypes.func.isRequired,
     onOpenHelpHandler : PropTypes.func.isRequired
@@ -91,7 +94,10 @@ let mapStateToProps = state => ({
     securityGrade: state.userReducer.securityGrade,
     isOpen: state.userReducer.status,
     animationGrade: state.homeReducer.animationGrade,
-})
+    bgRadialGradient: state.homeReducer.bgRadialGradient,
+    fontColor: state.homeReducer.fontColor,
+    bnColor: state.homeReducer.bnColor,
+}) 
 
 let mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ addAnimationGrade, onOpenHelpHandler } , dispatch)

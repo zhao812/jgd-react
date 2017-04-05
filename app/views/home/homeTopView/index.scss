@@ -12,7 +12,7 @@
     height: 100%;
 
     .home-security-circle{
-      background: url(../../static/images/home/circle-img.png) no-repeat center;
+      background: url(../images/circle-img.png) no-repeat center;
       background-size: 100%;
       width: 7.375rem;
       height: 7.375rem;
@@ -61,7 +61,7 @@
     }
 
     .home-security-circle-bg{
-      background: url(../../static/images/home/s6_bg.png) no-repeat center 2.25rem;
+      background: url(../images/s6_bg.png) no-repeat center 2.25rem;
       background-size: 100%;
       width: 9.1rem;
       height: 100%;
@@ -172,7 +172,7 @@
     width: 4.25rem;
     height: 1.25rem;
     line-height: 1.25rem;
-    background: url(../../static/images/home/btnOpenIcon.png) no-repeat 0.35rem center;
+    background: url(../images/btnOpenIcon.png) no-repeat 0.35rem center;
     background-size: 0.8rem;
     background-color: #00bcff;
     border-bottom-left-radius: 1rem;
@@ -188,7 +188,7 @@
 
   .btnClose{
     position: absolute;
-    background: url(../../static/images/home/btnCloseIcon.png) no-repeat center top;
+    background: url(../images/btnCloseIcon.png) no-repeat center top;
     background-size: 1rem;
     top: 0.6rem;
     right: 0.75rem;

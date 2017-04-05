@@ -6,7 +6,7 @@ import React, { PropTypes } from 'react'
 
 import CommonConst from '../../constants'
 import classNames from 'classnames'
-import '../../scss/myFooter/myFooterDateItem.scss'
+import './index.scss'
 
 
 class MyFooterDateItem extends React.Component {

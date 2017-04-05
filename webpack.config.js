@@ -40,7 +40,7 @@ loaders.push({
 //图片
 loaders.push({
   // test: /\.(png|jpg)$/,
-  // loader: "file-loader?name=images/[hash:8].[name].[ext]"
+  //loader: "file-loader?limit=1000&name=images/[hash:8].[name].[ext]",
   test: /\.(png|jpg)$/,
 　loader: 'url-loader?limit=1000&name=images/[hash:8].[name].[ext]'
 });

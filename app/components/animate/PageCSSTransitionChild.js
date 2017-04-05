@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CSSCore from '../utils/CSSCore'
+import CSSCore from './CSSCore'
 import supportTransition from './supportTransition'
 
 let transitionInfo = {

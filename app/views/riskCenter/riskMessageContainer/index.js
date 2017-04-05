@@ -6,12 +6,12 @@ import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import RiskMessageItem from './riskMessageItem'
-import * as RiskCenterConst from './reducer/const'
+import RiskMessageItem from '../riskMessageItem'
+import * as RiskCenterConst from '../reducer/const'
 
-import { onBnConfirmHandler } from './reducer/actions'
+import { onBnConfirmHandler } from '../reducer/actions'
 
-import './riskMessageContainer.scss'
+import './index.scss'
 
 class RiskMessageContainer extends React.Component {
     componentDidMount(){

@@ -2,11 +2,12 @@
  * created by zhao at 2017-3-17
  */
 import React, { PropTypes } from 'react'
-import * as HomeConst from './homeConst'
-import HomeMenuItem from './homeMenuItem'
+import { browserHistory } from 'react-router'
+import * as HomeConst from '../reducer/const'
+import HomeMenuItem from '../homeMenuItem'
 
-import * as ModalConst from '../../components/modal/modalConst'
-import Modal from '../../components/modal'
+import * as ModalConst from '../../../components/modal/modalConst'
+import Modal from '../../../components/modal'
 
 class HomeMenuListView extends React.Component{
     //菜单点击事件
@@ -21,7 +22,7 @@ class HomeMenuListView extends React.Component{
                     console.log(111, data)
                 })
             }else{
-                navigate.push(link);
+                browserHistory.push(link);
             }
         }
     }
