@@ -7,8 +7,10 @@
 }
 
 .home-container{
+  width: 100%;
   height: calc(100% - 3.2rem);
   overflow: auto;
+  background: #fff;
 }
 
 .home-container::-webkit-scrollbar{
