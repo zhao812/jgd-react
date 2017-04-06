@@ -5,7 +5,7 @@ import WinMark from "./winMark.js";
 
 //modal skin
 import Alert from "./alert.js";
-import { ModalMessageCodeSkin, ModalChargePackageSkin } from '../modalSkin'
+import { ModalSuccessAlertSkin } from '../modalSkin'
 import * as ModalConst from './modalConst'
 
 class HelpModal extends React.Component {
@@ -21,10 +21,17 @@ class HelpModal extends React.Component {
 
         this.show = this.show.bind(this);
         this.close = this.close.bind(this);
+        this.clear = this.clear.bind(this);
     }
 
     alert(data, skinName){
         return this.show(data, skinName);
+    }
+
+    clear(){
+        this.setState({
+            showModal: false,
+        })
     }
     
     close(){
@@ -61,10 +68,10 @@ class HelpModal extends React.Component {
 
     getAlertSkin(skinName, modal){
         switch(skinName){
-            case ModalConst.MODAL_MESSAGE_CODE_SKIN:
-                return <ModalMessageCodeSkin {...modal} />
+            case ModalConst.MODAL_SUCCESS_ALERT_SKIN:
+                return <ModalSuccessAlertSkin {...modal} />
             case ModalConst.MODAL_CHARGE_PACKAGE_SKIN:
-                return <ModalChargePackageSkin {...modal} />
+                // return <ModalChargePackageSkin {...modal} />
             default:
                 return <Alert {...modal} />
         }
@@ -74,7 +81,7 @@ class HelpModal extends React.Component {
     render(){
         let {showModal, modal, skinName} = this.state;
         modal.show = showModal
-        let skin = this.getAlertSkin(skinName, modal)
+        let skin = modal.show ? this.getAlertSkin(skinName, modal) : ""
         return (
             <div className="help">
                 <WinMark show={showModal}/>

@@ -14,32 +14,40 @@ import TabItemArrow from '../../components/ui/tabItemArrow'
 import './index.scss'
 import * as CommonConst from '../main/reducer/CommonConst'
 
-import { getRiskCenterData, onTabClickHandler } from './reducer/actions'
+import { getRiskCenterData } from './reducer/actions'
 
 class RiskCenter extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShow: true
+        }
+    }
+
     componentDidMount(){
+        this.setState({
+            isShow: true
+        })
         let { getRiskCenterData } = this.props
         getRiskCenterData()
     }
 
-    onSaveBtnHandler(){
+    onRiskTabHandler(){
+        this.setState({
+            isShow: !this.state.isShow
+        })
     }
 
     render(){
-        let { riskData, isOpen, onTabClickHandler } = this.props
-        let riskMessageData = {
-            isShow: riskData.riskMessageIsShow,
-            risks: riskData.riskList,
-            bnDisabled: riskData.bnConfirmDisabled
-        }
+        let { isShow } = this.state
 
         return(
             <Page id="user-center-view">
                 <Header title="风险中心"></Header>
                 <div className="risk-view-container">
-                    <TabItemArrow title="风险短信提醒" direction={riskData.riskMessageIsShow ? CommonConst.ARROW_DIRECTION_UP : CommonConst.ARROW_DIRECTION_DOWN } onClickHandler={()=>this.onSaveBtnHandler()} />
-                    <RiskMessageContainer {...riskMessageData} />
+                    <TabItemArrow title="风险短信提醒" direction={isShow ? CommonConst.ARROW_DIRECTION_UP : CommonConst.ARROW_DIRECTION_DOWN } onClickHandler={()=>this.onRiskTabHandler()} />
+                    <RiskMessageContainer />
                 </div>
             </Page>
         )
@@ -47,25 +55,14 @@ class RiskCenter extends React.Component {
 }
 
 RiskCenter.propTypes = {
-    riskData: PropTypes.shape({
-        mobile : PropTypes.string.isRequired,
-        riskList : PropTypes.array.isRequired,
-        riskMessageIsShow: PropTypes.bool.isRequired,
-        bnConfirmDisabled: PropTypes.bool.isRequired,
-    }).isRequired,
-    isOpen: PropTypes.number.isRequired,
-
-    getRiskCenterData : PropTypes.func,
-    onTabClickHandler : PropTypes.func,
+   getRiskCenterData : PropTypes.func,
 }
 
 let mapStateToProps = state => ({
-    riskData: state.riskCenterReducer,
-    isOpen: state.homeReducer.isOpen,
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getRiskCenterData, onTabClickHandler } , dispatch)
+    return bindActionCreators({ getRiskCenterData } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RiskCenter)

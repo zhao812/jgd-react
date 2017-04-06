@@ -14,5 +14,6 @@ const Help =  ReactDOM.render(<HelpModal/>, div);
 const Modal = function(){};
 Modal.alert = Help.alert;
 Modal.confirm = Help.confirm;
+Modal.clear = Help.clear;
 
 module.exports = Modal;

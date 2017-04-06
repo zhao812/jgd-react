@@ -1,7 +1,7 @@
 'use strict'
 import * as React from 'react';
 
-import { VelocityComponent,VelocityTransitionGroup }  from "velocity-react";
+// import { VelocityComponent,VelocityTransitionGroup }  from "velocity-react";
 
 class Velocity extends React.Component {
 
@@ -32,9 +32,11 @@ class Velocity extends React.Component {
         let { show } = this.props;
         let {anBefore, anAfter} = this.state;
         return (
-            <VelocityComponent  {...(show===true?anAfter:anBefore)}>
+            <div>
+            {/*<VelocityComponent  {...(show===true?anAfter:anBefore)}>*/}
                 { this.props.children }
-            </VelocityComponent>
+            {/*</VelocityComponent>*/}
+            </div>
         )
     }
 };

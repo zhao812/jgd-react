@@ -28,9 +28,10 @@ class RiskMessageContainer extends React.Component {
     }
 
     render(){
-        let divStyle, riskItems, { risks, isOpen, isShow, bnDisabled, onBnConfirmHandler } = this.props
+        let divStyle, riskItems, { risks, isOpen, isShow, onBnConfirmHandler } = this.props
         riskItems = risks.map((data, index) => (<RiskMessageItem key={index} data={data} />))
         divStyle = this.messageHeight ? {height: isShow ? this.messageHeight : 0 } : {}
+        let bnDisabled = true
         return(
             <div ref="messageDiv" className="risk-tab-div message-item-div" style={divStyle}>
                 <div className="div-title" dangerouslySetInnerHTML={{__html:isOpen == 2 ? RiskCenterConst.riskMessageOpenTip : RiskCenterConst.riskMessageCloseTip}}></div>
@@ -48,13 +49,14 @@ class RiskMessageContainer extends React.Component {
 RiskMessageContainer.PropTypes = {
     risks: PropTypes.array.isRequired,
     isOpen: PropTypes.number.isRequired,
+
     isShow: PropTypes.bool.isRequired,
-    bnDisabled: PropTypes.bool.isRequired,
 
     onBnConfirmHandler: PropTypes.func.isRequired,
 }
 
 let mapStateToProps = state => ({
+    risks: state.riskCenterReducer.riskList
 })
 
 let mapDispatchToProps = (dispatch) => {

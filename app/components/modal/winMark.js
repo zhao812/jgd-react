@@ -12,7 +12,7 @@ class WinMark extends React.Component {
     render() {
         let {children,show,onClick} = this.props;
         return (
-            <div onTouchTap={onClick} className={"virtual-mark "+(show===true?"":"hide")} >
+            <div onClick={onClick} className={"virtual-mark "+(show===true?"":"hide")} >
                 {children}
             </div>
         )

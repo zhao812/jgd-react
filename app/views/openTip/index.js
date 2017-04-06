@@ -9,31 +9,97 @@ import { connect } from 'react-redux'
 import Page from '../../components/page'
 import Header from '../../components/header'
 import UserClause from '../../components/ui/userClause'
+import ChargePackage from '../../components/ui/chargePackage'
+
+import Modal from '../../components/modal'
+import * as ModalConst from '../../components/modal/modalConst'
+import navigate from '../../router/navigate'
+
+
+import { getPackages, payChargePackage } from './reducer/actions'
+import classNames from 'classnames'
 
 import './index.scss'
 
-import { getPackages, onShowUserClause, onHideUserClause } from './reducer/actions'
-import classNames from 'classnames'
-
-import * as ModalConst from '../../components/modal/modalConst'
-import Modal from '../../components/modal'
-
 class OpenTip extends React.Component {
-    
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            bnDisabled: true,
+            agreeStatus: false,
+            userClauseIsShow: false,
+            isShowChargePackage: false
+        }
+    }
+
     componentDidMount(){
+        this.setState({
+            bnDisabled: true,
+            agreeStatus: false,
+            userClauseIsShow: false,
+            isShowChargePackage: false
+        })
+
         this.props.getPackages();
     }
 
-    onOpenHandler(){
-        let { packages } = this.props;
-        Modal.alert({packages: packages}, ModalConst.MODAL_CHARGE_PACKAGE_SKIN).then(function(data){
-            console.log(111, data)
+    //单选框点击事件
+    onCheckBoxClickHandler(){
+        let { agreeStatus } = this.state
+        if(agreeStatus){
+            this.setState({
+                agreeStatus: false,
+                bnDisabled: true,
+            })
+        }else{
+            this.setState({
+                userClauseIsShow: true,
+            })
+        }
+    }
+
+    onHideUserClauseHandler(){
+        this.setState({
+            agreeStatus: true,
+            bnDisabled: false,
+            userClauseIsShow: false
         })
+    }
+
+    //显示支付套餐界面
+    onOpenHandler(){
+        this.setState({
+            isShowChargePackage: true
+        })
+    }
+
+    onChargePackageHandler(data){
+        if(data.type){
+            let { payChargePackage } = this.props
+            payChargePackage(data.data).then(data=>{
+                if(data){
+                    this.setState({
+                        isShowChargePackage: false
+                    })
+
+                    Modal.alert({tip:"支付成功！恭喜您成为会员！"}, ModalConst.MODAL_SUCCESS_ALERT_SKIN).then(data=>{
+                        navigate.goBack()
+                    })
+                }
+            })
+        }else{
+            this.setState({
+                isShowChargePackage: false
+            })
+        }
     }
     
     render() {
+        let { bnDisabled, agreeStatus, userClauseIsShow, isShowChargePackage } = this.state
+
         let packageItems, checkBoxClass, 
-        { bnDisabled, agreeStatus, packages, userClauseIsShow, onShowUserClause, onHideUserClause } = this.props
+        { packages } = this.props
 
         packageItems = packages.map((obj, index)=> <div key={index}><span className="red">{obj.name + "："}</span>{obj.desc}</div>)
         checkBoxClass = classNames({
@@ -59,9 +125,10 @@ class OpenTip extends React.Component {
                         随着金戈盾的安全防御措施日益完善，保障您安全的各项维度会不断增多，届时，金戈盾将继续引导您完善安全防御体系，也将根据您届时的安全措施完善程度计价，请悉知！<br />
                     </div>
                 </div>
-                <div className="clause-div" onTouchTap={onShowUserClause}><div className={checkBoxClass}></div><div>我已阅读以上条款并遵守相关规定</div></div>
+                <div className="clause-div" onTouchTap={()=>this.onCheckBoxClickHandler()}><div className={checkBoxClass}></div><div>我已阅读以上条款并遵守相关规定</div></div>
                 <button className="btn-open" disabled={bnDisabled} onTouchTap={()=>this.onOpenHandler()}>开通会员</button>
-                { userClauseIsShow ? <UserClause onCloseHandler={onHideUserClause} /> : "" }
+                { userClauseIsShow ? <UserClause onCloseHandler={()=>this.onHideUserClauseHandler()} /> : "" }
+                { isShowChargePackage ? <ChargePackage packages={packages} onClickHandler={(data)=>this.onChargePackageHandler(data)} /> : "" }
             </Page>
         )
     }
@@ -74,24 +141,17 @@ OpenTip.PropTypes = {
         desc: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
     })).isRequired,
-    bnDisabled: PropTypes.bool.isRequired,
-    agreeStatus: PropTypes.bool.isRequired,
-    userClauseIsShow: PropTypes.bool.isRequired,
-
+    
     getPackages: PropTypes.func.isRequired,
-    onShowUserClause: PropTypes.func.isRequired,
-    onHideUserClause: PropTypes.func.isRequired,
+    payChargePackage: PropTypes.func.isRequired,
 }
 
 let mapStateToProps = state => ({
-    packages: state.openTipReducer.packages,
-    bnDisabled: state.openTipReducer.bnDisabled,
-    agreeStatus: state.openTipReducer.agreeStatus,
-    userClauseIsShow: state.openTipReducer.userClauseIsShow,
+    packages: state.openTipReducer.packages
 })
 
 let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getPackages, onShowUserClause, onHideUserClause } , dispatch)
+    return bindActionCreators({ getPackages, payChargePackage } , dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OpenTip)
