@@ -6,11 +6,21 @@ import * as ModalConst from '../../modal/modalConst'
 import * as helpAction from '../../../redux/common/helpAction'
 import './index.scss'
 import '../common.scss'
+import ChargePackageItem from './chargePackageItem'
 
 class ModalChargePackageSkin extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            selectData: null
+        }
+    }
+
+    componentDidMount(){
+        this.setState({
+            selectPkgData: null
+        })
     }
 
     handOk(){
@@ -25,10 +35,23 @@ class ModalChargePackageSkin extends React.Component {
         let { callBack } = this.props;
         callBack&&callBack(data);
     }
+
+    onItemClickHandler(pkgObj){
+        this.setState({
+            selectPkgData: pkgObj
+        })
+    }
     
     render() {
-        let {show, packages} = this.props;
-        console.log(packages)
+        let { selectPkgData } = this.state
+        let packageItems, {show, packages} = this.props;
+        packageItems = packages.map((obj, index) => {
+            if(!selectPkgData) selectPkgData = obj
+            return (
+                <ChargePackageItem key={index} data={obj} selected={selectPkgData.pkgId==obj.pkgId ? true : false} onClickHandler={()=>this.onItemClickHandler(obj)} />
+            )
+        })
+
         return (
             <Velocity show={show}>
                 <div className="alert-charge-package-skin popup-container">
@@ -37,19 +60,17 @@ class ModalChargePackageSkin extends React.Component {
                         <div className="alert-content">
                             <div className="item">
                                 <div className="title charge-package-title">支付方式：</div>
-                                <div className="right charge-package-list">
-                                    
-                                </div>
+                                <div className="right charge-package-list">{ packageItems }</div>
                                 <div className="clear"></div>
                             </div>
                             <div className="item">
                                 <div className="title">会员费：</div>
-                                <div className="right money red"></div>
+                                <div className="right money red">{selectPkgData.amount}</div>
                                 <div className="clear"></div>
                             </div>
                             <div className="item">
                                 <div className="title">有效期：</div>
-                                <div className="right date"></div>
+                                <div className="right date">{selectPkgData.endDate}</div>
                                 <div className="clear"></div>
                             </div>
                             <div className="item">
@@ -73,7 +94,7 @@ class ModalChargePackageSkin extends React.Component {
 };
 
 ModalChargePackageSkin.defaultProps = {
-    show:false,
+    show: false,
     packages: []
 }
 

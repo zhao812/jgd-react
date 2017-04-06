@@ -13,7 +13,7 @@ const receiveData = data => ({
 
 let setColorByLevel = level => {
     level = level || 1
-    return homeConst.ColorLevel[level]
+    return homeConst.ColorLevel[level-1]
 } 
 
 //获取首页用户数据

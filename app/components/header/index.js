@@ -5,6 +5,8 @@
 import React, { PropTypes } from 'react'
 import { browserHistory } from 'react-router'
 
+import navigate from '../../router/navigate'
+
 //导入css
 import './index.scss'
 
@@ -17,7 +19,7 @@ class Header extends React.Component{
             <header className="app-header">
                 <div>
                     <span>{ title }</span>
-                    <button onClick={ () => { onBackClick ? onBackClick() : browserHistory.goBack() }}></button>
+                    <button onClick={ () => { onBackClick ? onBackClick() : navigate.goBack() }}></button>
                 </div>
             </header>
         ) 

@@ -86,6 +86,11 @@ var config = {
       stats:{colors:true},
       hot: true,
       contentBase: "build/",
+  },
+  //其它解决方案配置
+  resolve: {
+    alias: {
+    }
   }
 };
 

@@ -32,5 +32,5 @@ new WebpackDevServer(webpack(config), {
     if (err) {
       console.log(err);
     }
-    console.log(localPublicPath);
+    console.log(localPublicPath)
 });

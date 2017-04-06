@@ -25,7 +25,7 @@ class OpenTip extends React.Component {
     }
 
     onOpenHandler(){
-        let {packages} = this.props;
+        let { packages } = this.props;
         Modal.alert({packages: packages}, ModalConst.MODAL_CHARGE_PACKAGE_SKIN).then(function(data){
             console.log(111, data)
         })
@@ -60,7 +60,7 @@ class OpenTip extends React.Component {
                     </div>
                 </div>
                 <div className="clause-div" onTouchTap={onShowUserClause}><div className={checkBoxClass}></div><div>我已阅读以上条款并遵守相关规定</div></div>
-                <button className="btn-open" disabled={bnDisabled} onTouchTap={this.onOpenHandler}>开通会员</button>
+                <button className="btn-open" disabled={bnDisabled} onTouchTap={()=>this.onOpenHandler()}>开通会员</button>
                 { userClauseIsShow ? <UserClause onCloseHandler={onHideUserClause} /> : "" }
             </Page>
         )

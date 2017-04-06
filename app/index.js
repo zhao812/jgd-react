@@ -12,9 +12,12 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import { history, store} from './redux'
 import Routers from './router/Routers'
+import Navigate from './router/navigate'
 
 //app点击事件初始化
 injectTapEventPlugin();
+
+Navigate.install(history)
 
 ReactDOM.render(
      <Provider store={store}>
