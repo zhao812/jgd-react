@@ -26,3 +26,6 @@ const App = React.createClass({
 })
 
 export default App
+
+
+export * as ActionTpyes from './reducer/ActionTypes'

@@ -5,7 +5,7 @@ import WinMark from "./winMark.js";
 
 //modal skin
 import Alert from "./alert.js";
-import { ModalSuccessAlertSkin } from '../modalSkin'
+import { ModalSuccessAlertSkin, ModalAutoCloseSkin } from '../modalSkin'
 import * as ModalConst from './modalConst'
 
 class HelpModal extends React.Component {
@@ -14,7 +14,8 @@ class HelpModal extends React.Component {
         super(props);
         this.state = {
             modal: {},
-            showModal: false
+            showModal: false,
+            showMask: false
         }
 
         this.alert = this.alert.bind(this);
@@ -57,9 +58,10 @@ class HelpModal extends React.Component {
                 ...data,
                 callBack: result => this.close().then(()=>resolve(result))
             })
-            
+            let isFind = [ModalConst.MODAL_AUTO_CLOSE_SKIN].find((name)=>{return name==skinName})
             this.setState({
                 showModal:true,
+                showMask: isFind ? false: false,
                 modal,
                 skinName
             })
@@ -70,8 +72,8 @@ class HelpModal extends React.Component {
         switch(skinName){
             case ModalConst.MODAL_SUCCESS_ALERT_SKIN:
                 return <ModalSuccessAlertSkin {...modal} />
-            case ModalConst.MODAL_CHARGE_PACKAGE_SKIN:
-                // return <ModalChargePackageSkin {...modal} />
+            case ModalConst.MODAL_AUTO_CLOSE_SKIN:
+                return <ModalAutoCloseSkin {...modal} />
             default:
                 return <Alert {...modal} />
         }
@@ -79,12 +81,12 @@ class HelpModal extends React.Component {
 
 
     render(){
-        let {showModal, modal, skinName} = this.state;
+        let {showModal, modal, skinName, showMask} = this.state
         modal.show = showModal
         let skin = modal.show ? this.getAlertSkin(skinName, modal) : ""
         return (
             <div className="help">
-                <WinMark show={showModal}/>
+                <WinMark show={showMask}/>
                 {skin}
             </div>
         )

@@ -7,7 +7,9 @@ import * as UserConst from './userConst'
 
 const initialState = {
     securityGrade : 1,      //等级
-    status : 1,             //1:未开启 2开启      
+    status : 1,             //1:未开启 2开启
+
+    messageCode: ""         //短信验证码
 }
 
 let initUserData = (state, data) => {

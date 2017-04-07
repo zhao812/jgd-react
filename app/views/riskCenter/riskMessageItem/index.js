@@ -12,8 +12,6 @@ import RiskMessageSelectList from '../riskMessageSelectList'
 import RiskMessageSelectItem from '../riskMessageSelectItem'
 import RiskMessageCityItem from '../riskMessageCityItem'
 
-import { onSwitchHandler, onSelectChangeHandler } from '../reducer/actions'
-
 import './index.scss'
 
 class RiskMessageItem extends React.Component {
@@ -51,15 +49,8 @@ RiskMessageItem.PropTypes = {
         inputArr: PropTypes.array,
     }).isRequired,
 
-    onSwitchHandler: PropTypes.func.isRequired,
-    onSelectChangeHandler: PropTypes.func.isRequired,
+    onSwitchHandler: PropTypes.func,
+    onSelectChangeHandler: PropTypes.func
 }
 
-let mapStateToProps = state => ({
-})
-
-let mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ onSwitchHandler, onSelectChangeHandler } , dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RiskMessageItem)
+export default RiskMessageItem

@@ -47,7 +47,7 @@ class RiskCenter extends React.Component {
                 <Header title="风险中心"></Header>
                 <div className="risk-view-container">
                     <TabItemArrow title="风险短信提醒" direction={isShow ? CommonConst.ARROW_DIRECTION_UP : CommonConst.ARROW_DIRECTION_DOWN } onClickHandler={()=>this.onRiskTabHandler()} />
-                    <RiskMessageContainer />
+                    <RiskMessageContainer isShow={isShow} />
                 </div>
             </Page>
         )

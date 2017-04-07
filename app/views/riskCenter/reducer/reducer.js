@@ -6,19 +6,12 @@ import * as ActionTypes from '../../main/reducer/ActionTypes'
 const initialState = {
     mobile: "",
     riskList: [],
-    riskMessageIsShow: true,    //风险短信提醒是否显示
-    bnConfirmDisabled: true,   //保存按钮状态
 }
 
 let initData = (state, data) => ({
     ...state,
     mobile: data.mobile,
     riskList: data.riskList
-})
-
-let switchTabRiskMessageState = state => ({
-    ...state,
-    riskMessageIsShow: !state.riskMessageIsShow
 })
 
 let switchRiskMessageCheckbox = (state, data) => {
@@ -33,7 +26,6 @@ let switchRiskMessageCheckbox = (state, data) => {
     return {
         ...state,
         riskList: list,
-        bnConfirmDisabled: false,
     }
 }
 
@@ -56,7 +48,6 @@ let riskMessageSelectChange = (state, data) => {
     return {
         ...state,
         riskList: list,
-        bnConfirmDisabled: false,
     }
 }
 
@@ -64,9 +55,6 @@ export default function update (state = initialState, action){
     switch(action.type){
         case ActionTypes.RISK_CENTER_UPDATE:
             return initData(state, action.data)
-
-        case ActionTypes.SWITCH_TAB_RISK_MESSAGE:
-            return switchTabRiskMessageState(state)
 
         case ActionTypes.SWITCH_RISK_CHECKBOX:
             return switchRiskMessageCheckbox(state, action.data)
