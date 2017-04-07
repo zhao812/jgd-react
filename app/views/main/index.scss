@@ -98,3 +98,7 @@ a{
     left: 0;
     z-index: 999;
 }
+
+.container-height{
+    height: calc(100% - 3.2rem);
+}

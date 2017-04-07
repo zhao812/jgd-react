@@ -1,14 +1,15 @@
-// #safety-grade-view{
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   top: 0;
-//   left: 0;
-//   background: #eeeef3;
-// }
+#safety-grade-view{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #eeeef3;
+}
 
 .safetyGrade-container{
   position: relative;
+  overflow: auto;
 
   .safetyGrade-top-div{
     width: 100%;
