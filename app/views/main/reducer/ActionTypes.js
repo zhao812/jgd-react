@@ -30,3 +30,6 @@ export const HIDE_MODAL = "HIDE_MODAL"
 
 /**成为会员opentip */
 export const INIT_OPENTIP = "INIT_OPENTIP"
+
+
+export const SAFE_DATA = "SAFE_DATA"

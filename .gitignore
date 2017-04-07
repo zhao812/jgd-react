@@ -6,3 +6,5 @@ build/**
 #git
 .git/
 
+.idea/
+*.log
