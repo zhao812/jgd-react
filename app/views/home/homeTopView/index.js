@@ -7,8 +7,8 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
 import { addAnimationGrade,  onOpenHelpHandler } from '../reducer/actions'
-
-
+import * as lev from '../../main/reducer/userConst'
+import navigate  from '../../../router/navigate'
 import classNames from 'classnames'
 import * as HomeConst from '../reducer/const'
 
@@ -20,7 +20,11 @@ class HomeTopView extends React.Component{
 
     //提高等级按钮事件
     onBnUpgradeHandler(){
-        console.log("onBnUpgradeHandler")
+        let {securityGrade} = this.props
+        console.log(securityGrade,lev.MaxLevel)
+        if(securityGrade <lev.MaxLevel){
+            navigate.push('/safetyGrade')
+        }
     }
 
     //开启按钮事件
@@ -61,7 +65,7 @@ class HomeTopView extends React.Component{
                     { marks }
                     <div className="home-security-title">当前安全等级</div>
                     <div className="home-security-txt">S{ animationGrade }</div>
-                    <button className={securityGrade >= HomeConst.MaxLevel ? "max-level btn-upgrade" : "btn-upgrade"} style={{color : fontColor}} onTouchTap={this.onBnUpgradeHandler}>
+                    <button className={securityGrade >= HomeConst.MaxLevel ? "max-level btn-upgrade" : "btn-upgrade"} style={{color : fontColor}} onTouchTap={()=>this.onBnUpgradeHandler()}>
                         {securityGrade >= HomeConst.MaxLevel ? "最高等级" : "提高等级"}
                     </button>
                     <div className="upgrade-tip">尊敬的金戈盾会员，安全等级为S7时，<br />账户发生风险，钱宝优先追偿哦！</div>

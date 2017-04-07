@@ -20,12 +20,12 @@ class SafeGrade extends React.Component {
     }
     
     render() {
-        let {openStatus,data,safetyLevel} = this.props;
+        let {openStatus,content,safetyLevel} = this.props;
         return (
             <Page id="open-tip-view">
                 <Header title="安全等级" />
                 <div className="safetyGrade-container">
-                    <div className={"safetyGrade-top-div "  +(openStatus=="close" ? "close" : " open")}>
+                    <div className={"safetyGrade-top-div "  +(openStatus==1? "close" : " open")}>
                         <div className="safetyGrade-bg"></div>
                         <div className="safetyGrade-title">安全等级为：{safetyLevel}
                             <br/>
@@ -34,7 +34,7 @@ class SafeGrade extends React.Component {
                     </div>
                     <span className="safetyGrade-list-title">您的扣分项为：</span>
                     <div className="safetyGrade-list">
-                        {data&&data.map((e, i) =><div className="safetyGrade-item" key={"id_" + i}>{e.name}</div> )}
+                        {content!=undefined&&content.map((e, i) =><div className="safetyGrade-item" key={"id_" + i}>{e.name}</div> )}
                       
                     </div>
                 </div>
@@ -46,15 +46,14 @@ class SafeGrade extends React.Component {
 SafeGrade.propTypes = {
     openStatus:PropTypes.number.isRequired,
     safetyLevel : PropTypes.number.isRequired,
-    safetyTip : PropTypes.string.isRequired,
-    data : PropTypes.array.isRequired
+    safetyTip : PropTypes.string.isRequired
 }
 
 let mapStateToProps = state => ({
     openStatus:state.userReducer.status,
     safetyLevel: state.userReducer.securityGrade,
     safetyTip: state.safetyGrade.safetyTip,
-    data : state.safetyGrade.data,
+    content : state.safetyGrade.content,
 })
 
 let mapDispatchToProps = (dispatch) => {

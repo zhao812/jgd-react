@@ -4,8 +4,7 @@
 import * as ActionTypes from '../../main/reducer/ActionTypes'
 import * as helpAction from '../../../redux/common/helpAction'
 
-const OPEN_TIP = "您已开启金戈盾，账户安全保障中";
-const CLOSE_TIP = "开启金戈盾，全面保障您的账户安全";
+
 const receiveData = data => ({
     type : ActionTypes.SAFE_DATA,
     data : data

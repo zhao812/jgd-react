@@ -6,7 +6,7 @@ import * as ActionTypes from '../../main/reducer/ActionTypes'
 const initialState = {
     safetyTip: "",
     openStatus:"close",
-    data:[]
+    content:[]
 }
 
 
@@ -15,7 +15,7 @@ export default function update (state = initialState, action){
         case ActionTypes.SAFE_DATA:
             return {
                 ...state,
-                data:action.data
+                content:""||action.data
             }
         default:
             return state

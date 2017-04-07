@@ -13,3 +13,6 @@ export riskCenterReducer from '../views/riskCenter/reducer/reducer'
 
 //成为会员
 export openTipReducer from '../views/openTip/reducer/reducer'
+
+//会员等级
+export safetyGrade from '../views/safetyGrade/reducer/reducer'

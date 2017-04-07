@@ -10,6 +10,7 @@ const Home = cb => require.ensure([], require => { cb(null, require('../views/ho
 const MyFooter = cb => require.ensure([], require => { cb(null, require('../views/myFooter').default)}, "myFooter")
 const OpenTip = cb => require.ensure([], require => { cb(null, require('../views/openTip').default)}, "openTip")
 const RiskCenter = cb => require.ensure([], require => { cb(null, require('../views/riskCenter').default)}, "riskCenter")
+const SafetyGrade = cb => require.ensure([], require => { cb(null, require('../views/safetyGrade').default)}, "safetyGrade")
 
 const Routers = {
 	path: '/',
@@ -29,6 +30,10 @@ const Routers = {
 		{
 			path: 'riskCenter',
 			getComponent(nextState, cb){ RiskCenter(cb) }
+		},
+		{
+			path: 'safetyGrade',
+			getComponent(nextState, cb){ SafetyGrade(cb) }
 		},
 	]
 }
